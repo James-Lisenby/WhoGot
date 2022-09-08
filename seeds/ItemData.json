@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Flour",
+    "quantity": "` lb`",
+    "user_id": 1
+  },
+  {
+    "name": "Apples",
+    "quantity": "10",
+    "user_id": 1
+  },
+  {
+    "name": "Sugar",
+    "quantity": "12 cups",
+    "user_id": 2
+  }
+]
