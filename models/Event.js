@@ -29,10 +29,7 @@ Event.init(
         key: 'id'
       }
     },
-    items: {
-      type: DataTypes.STRING(100),
-      allowNull: false
-    },
+   // Deleted items columb due to redundance 
   },
   {
     sequelize,

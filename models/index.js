@@ -4,7 +4,7 @@ const Event = require('./Event');
 
 // Create associations
 User.hasMany(Item, {
-  onDelete: 'CASCADE',
+  onDelete: 'SET NULL',
   foreignKey: 'user_id',
 });
 
