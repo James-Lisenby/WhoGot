@@ -1,3 +1,3 @@
-DROP DATABASE IF EXISTS community_fridge;
+DROP DATABASE IF EXISTS db_whogot;
 
-CREATE DATABASE community_fridge;
+CREATE DATABASE db_whogot;
