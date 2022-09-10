@@ -15,7 +15,7 @@ Event.init(
       allowNull: false
     },
     time: {
-      type: DataTypes.DATETIME,
+      type: DataTypes.DATE,
       allowNull: false
     },
     place: {
