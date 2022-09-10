@@ -1,17 +1,25 @@
 [
-  {
+  { "id": 1,
     "name": "Flour",
-    "quantity": "` lb`",
+    "quantity": 1,
+    "cost": 25,
+    "event_id": 4, 
     "user_id": 1
+   
+    
   },
-  {
+  { "id": 2,
     "name": "Apples",
     "quantity": "10",
-    "user_id": 1
+    "cost": 14,
+    "event_id": 1,
+    "user_id": 2
   },
-  {
+  { "id": 3,
     "name": "Sugar",
     "quantity": "12 cups",
-    "user_id": 2
+    "cost": 50,
+    "event_id": 4,
+    "user_id": 3
   }
 ]
