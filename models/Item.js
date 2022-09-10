@@ -4,7 +4,12 @@ const sequelize = require('../config/connection');
 class Item extends Model {}
 
 Item.init(
-  {
+  { id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
     name: {
       type: DataTypes.STRING(100),
       allowNull: false
