@@ -30,4 +30,4 @@ Item.belongsTo(Event, {
   foreignKey: 'event_id'
 });
 
-module.exports = { User, Item };
+module.exports = { User, Item, Event};
