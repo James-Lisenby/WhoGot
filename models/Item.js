@@ -4,7 +4,12 @@ const sequelize = require('../config/connection');
 class Item extends Model {}
 
 Item.init(
-  {
+  { id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
     name: {
       type: DataTypes.STRING(100),
       allowNull: false
@@ -18,8 +23,16 @@ Item.init(
       type: DataTypes.INTEGER,
       allowNull: true
     },
+    event_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'event',
+        key: 'id'
+      }
+    },
     user_id: {
       type: DataTypes.INTEGER,
+      allowNull: true,
       references: {
         model: 'user',
         key: 'id'
@@ -30,7 +43,7 @@ Item.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'food_item',
+    modelName: 'item',
   }
 );
 

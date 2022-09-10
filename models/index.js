@@ -1,32 +1,33 @@
 const User = require('./User');
-const FoodItem = require('./FoodItem');
+const Item = require('./Item');
+const Event = require('./Event');
 
 // Create associations
 User.hasMany(Item, {
   onDelete: 'CASCADE',
-  foreignKey: 'id',
+  foreignKey: 'user_id',
 });
 
 Item.belongsTo(User, {
-  foreignKey: 'id'
+  foreignKey: 'user_id'
 });
 
 User.hasMany(Event, {
   onDelete: 'CASCADE',
-  foreignKey: 'id',
+  foreignKey: 'host_user_id',
 });
 
 Event.belongsTo(User, {
-  foreignKey: 'id'
+  foreignKey: 'host_user_id'
 });
 
 Event.hasMany(Item, {
   onDelete: 'CASCADE',
-  foreignKey: 'id',
+  foreignKey: 'event_id',
 });
 
 Item.belongsTo(Event, {
-  foreignKey: 'id'
+  foreignKey: 'event_id'
 });
 
-module.exports = { User, FoodItem };
+module.exports = { User, Item };
