@@ -28,13 +28,17 @@ Event.init(
         model: 'user',
         key: 'id'
       }
-    }
+    },
+    items: {
+      type: DataTypes.STRING(100),
+      allowNull: false
+    },
   },
   {
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'food_item',
+    modelName: 'event',
   }
 );
 

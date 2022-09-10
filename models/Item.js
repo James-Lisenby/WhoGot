@@ -18,8 +18,16 @@ Item.init(
       type: DataTypes.INTEGER,
       allowNull: true
     },
+    event_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'event',
+        key: 'id'
+      }
+    },
     user_id: {
       type: DataTypes.INTEGER,
+      allowNull: true,
       references: {
         model: 'user',
         key: 'id'
@@ -30,7 +38,7 @@ Item.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'food_item',
+    modelName: 'item',
   }
 );
 
