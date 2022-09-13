@@ -6,23 +6,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User Registry</title>
   {{!-- <link rel="stylesheet" href="/css/jass.css"> --}}
+  
+  <link rel="stylesheet" href="/css/whogot.css">
 </head>
 
-<body>
+
+
+<body >
   <header class="display-flex justify-space-between align-center p-2">
+    <center>
+
     <h1>
-      User Registry
+      User Page
     </h1>
     <!-- TODO: Add a comment describing the functionality of this helper -->
     {{#if logged_in}}
     <nav>
       <button class="btn" id="logout">logout</button>
     </nav>
+    <div style="background-image:url(/Resources/images/photo-1568089523686-dd5ccd208761.jpeg); background-size:cover; background-blend-mode:luminosity;"></div>
     {{/if}}
   </header>
   <main class="container container-fluid mt-5">
     {{{ body }}}
   </main>
+    </center>
   <footer>
       
   </footer>
