@@ -1,14 +1,28 @@
+let eventText;
+let eventTitle;
 let createNewEventBTN;
 let deleteEventBTN;
 let saveEventBTN;
 let exportEventBTN;
+let eventList;
 
 if (window.location.pathname === '/events.js'){
+    eventTitle = document.querySelector('.note-title');
+    eventText = document.querySelector('.event-textarea');
     createNewEventBTN = document.querySelector('.create-new-event');
     deleteEventBTN = document.querySelector('.deleteEvent');
     saveEventBTN = document.querySelector('.saveEvent');
     exportEventBTN = document.querySelector('.exportEvent')
+    eventList = document.querySelector('.list-container, list-group');
 }
+
+const show = (elem) => {
+    elem.style.display = 'inline';
+};
+
+const hide = (elem) => {
+    elem.style.display = 'none';
+};
 
 let activeEvent = {};
 
@@ -112,7 +126,7 @@ const handleRenderSaveBtn = () => {
 
 const renderEventList = async (events) => {
     let jsonEvents = await events.json();
-    if (window.location.pathname = '/events') {
+    if (window.location.pathname === '/events') {
         eventList.forEach((el) => (el.innerHTML = ''));
     }
 
@@ -122,7 +136,7 @@ const renderEventList = async (events) => {
         const liEl = document.createElement('li');
         liEl.classList.add('list-group-item');
 
-        const spaEl = document.createElement('span');
+        const spanEl = document.createElement('span');
         spanEl.classList.add('list-item-title');
         spanEl.innerText = text;
         spanEl.addEventListener('click', handleNewEventView);
@@ -152,7 +166,7 @@ const renderEventList = async (events) => {
     }
 
     jsonEvents.forEach((events) => {
-        const li = createli(events.title);
+        const li = createLi(events.title);
         li.dataset.event = JSON.stringify(events);
 
         eventListItems.push(li);
