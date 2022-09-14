@@ -37,13 +37,11 @@ module.exports = router;
 
 
 // Route "/events" - GETS all events associated with user
-  // GETS hosted events
-  // GETS attendee events
+//// GETS hosted events
+//// GETS attendee events
 
 // GET Route "/event/:id" - get a specific event from url
 
 // POST Route "event/new" - POSTs new event data from form to whogot_db
 
 // POST Route "/event/:id?chips=claim+tent=unclaim" - POSTs claim or unclaimed button clicks for the event
-
-// 
