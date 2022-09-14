@@ -146,11 +146,11 @@ const renderEventList = async (events) => {
         if (delBtn) {
             const delBtnEl = document.createElement('i');
             delBtnEl.classList.add(
-                //placeholder
-                //placeholder
-                //placeholder
-                //placeholder
-
+                'fas',
+                'fa-trash-alt',
+                'float-right',
+                'text-danger',
+                'delete-event'       
             );
 
             delBtnEl.addEventListener('click', handleEventDelete);
