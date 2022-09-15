@@ -1,6 +1,17 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Event, Item } = require('../../models');
 
+// GET all users
+router.get('/', async (req, res) => {
+  try {
+    const userData = await User.findAll({
+      include: [{ model: Item }, { model: Event }],
+    });
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 // CREATE new user
 router.post('/', async (req, res) => {
   try {
@@ -24,7 +35,6 @@ router.post('/', async (req, res) => {
 
 router.post('/login', async (req, res) => {
   try {
-    // TODO: Add a comment describing the functionality of this expression
     const userData = await User.findOne({ where: { email: req.body.email } });
 
     if (!userData) {
@@ -34,7 +44,6 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    // TODO: Add a comment describing the functionality of this expression
     const validPassword = await userData.checkPassword(req.body.password);
 
     if (!validPassword) {
@@ -44,7 +53,6 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    // TODO: Add a comment describing the functionality of this method
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
@@ -58,7 +66,6 @@ router.post('/login', async (req, res) => {
 
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
-    // TODO: Add a comment describing the functionality of this method
     req.session.destroy(() => {
       res.status(204).end();
     });
