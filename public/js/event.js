@@ -7,7 +7,7 @@ let exportEventBTN;
 let eventList;
 
 if (window.location.pathname === '/events.js'){
-    eventTitle = document.querySelector('.note-title');
+    eventTitle = document.querySelector('.event-title');
     eventText = document.querySelector('.event-textarea');
     createNewEventBTN = document.querySelector('.create-new-event');
     deleteEventBTN = document.querySelector('.deleteEvent');
@@ -161,7 +161,7 @@ const renderEventList = async (events) => {
         return liEl
     };
 
-    if (jsonEvents.lenght === 0) {
+    if (jsonEvents.length === 0) {
         eventListItems.push(createLi('No saved events', false));    
     }
 
