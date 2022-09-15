@@ -1,13 +1,21 @@
 const router = require('express').Router();
-const { User } = require('../models');
+const { User, Event, Item } = require('../models');
 const withAuth = require('../utils/auth');
+const connection = require('../config/connection');
 
-// Route "/"
-
+// Route "/" renders all of events related to logged in user and show: name, date, place, and host of event
 router.get('/', withAuth, async (req, res) => {
   try {
-    const userData = await User.findAll({
-      attributes: { exclude: ['password'] }
+
+    const loggedInUser = req.session.user_id;
+
+    // find all events WHERE LOGGED-USER is host or has claimed an item
+    const userEventData = await Event.findAll({
+      
+      where: {
+        // host_user_id === logged in user || where claimed_user_id === logged in user
+        host_user_id: loggedInUser
+      }
     });
 
     const users = userData.map((project) => project.get({ plain: true }));
@@ -33,15 +41,12 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-module.exports = router;
-
-
-// Route "/events" - GETS all events associated with user
-//// GETS hosted events
-//// GETS attendee events
 
 // GET Route "/event/:id" - get a specific event from url
 
 // POST Route "event/new" - POSTs new event data from form to whogot_db
 
 // POST Route "/event/:id?chips=claim+tent=unclaim" - POSTs claim or unclaimed button clicks for the event
+
+
+module.exports = router;
