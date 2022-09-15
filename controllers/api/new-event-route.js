@@ -7,8 +7,9 @@ router.post('/', withAuthApi, async (req, res) => {
     try {
         const createdEvent = await Event.create({
             ...req.body,
-            user_id: req.session.user_id
+            user_id: req.session.user_id,
         });
+        
         res.json(createdEvent);
     }catch (err) {
         console.log(err);
