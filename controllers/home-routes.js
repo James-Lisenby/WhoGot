@@ -1,37 +1,45 @@
 const router = require('express').Router();
+const { Exception } = require('handlebars');
 const { User, Event, Item } = require('../models');
 const withAuth = require('../utils/auth');
 
 // Route "/" renders all of events related to logged in user and show: name, date, place, and host of event
 router.get('/', withAuth, async (req, res) => {
+
   try {
 
     const loggedInUser = req.session.user_id;
 
     // find all events WHERE LOGGED-USER is host
-    const hostedEventData = await Event.findAll({
+    const userEventData = await Event.findAll({
       where: {
-        host_user_id: loggedInUser
+        host_user_id: loggedInUser,
+      },
+      //eager loading includes associated items and the users associated with those items
+      include: {
+        model: User,
+        include: {
+          model: Item,
+          include: {
+            model: Event
+          }
+        }
       }
     });
     //serializes data
-    const hostedEvents = hostedEventData.map((hostedEvent) => hostedEvent.get({ plain: true }));
+    const userEvents = userEventData.map((userEvent) => userEvent.get({ plain: true }));
 
+    // we need lots of middleware to transform this data and do little conditionals like "is user bringing items to event"
 
-    // FIXME grab the whole event object for these items rather than just the item
-    // find all events WHERE LOGGED-USER has claimed an item
-    const claimedItemData = await Item.findAll({
-      where: {
-        user_id: loggedInUser
-      }
-    });
-    //serializes data
-    const claimedItems = claimedItemData.map((claimedItem) => claimedItem.get({ plain: true }));
+    // need to add conditionals in handlebars to test if we should render various object properties such as items user is bringing to event if they are bringing any
+    
+    console.log(userEvents);
+    console.log(userEvents[1].user.items);
+    console.log(userEvents[1].user.items[1].event);
 
     res.render('homepage', {
       loggedInUser,
-      hostedEvents,
-      claimedItems,
+      userEvents,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -51,6 +59,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+// POST Route "/signup" - posts a new user to Users.js
 
 // GET Route "/event/:id" - get a specific event from url
 

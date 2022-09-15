@@ -4,34 +4,34 @@
     "name": "The Birth",
     "time": "1994-02-27 12:12:12",
     "place": "The Dungeon",
-    "host_user_id": "9001"
+    "host_user_id": 1
   },
   {
     "id": 2,
     "name": "The Purge",
     "time": "2028-06-10 06:06:07",
     "place": "The Establishment",
-    "host_user_id": "5798"
+    "host_user_id": 2
   },
   {
     "id": 3,
     "name": "Draft Pary",
     "time": "3030-02-10 08:05:55",
     "place": "The Yukon",
-    "host_user_id": "566650"
+    "host_user_id": 1
   },
   {
     "id": 4,
     "name": "Little Luchadors Wrestleing",
     "time": "2500-11-20 05:06:40",
     "place": "El Diablos Watering Hole",
-    "host_user_id": "8675309"
+    "host_user_id": 3
   },
   {
     "id": 5,
     "name": "The Ceremony",
     "time": "3031-02-10 08:05:55",
     "place": "The Place",
-    "host_user_id": "600"
+    "host_user_id": 2
   }
 ]

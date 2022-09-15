@@ -1,15 +1,39 @@
-{{#each hostedEvents as |event| }}
-{{loggedInUser}}
-<h1>{{loggedInUser}}</h1>
+{{#each userEvents as |event| }}
+<h1>Events Hosted by {{event.user.username}}</h1>
 <div class="row align-center mb-5">
-  <div class="col-md-6">
-    <h2>{{event.name}}</h2>
+  <div class="col-md-3">
+    <h2>Event Name: {{event.name}}</h2>
   </div>
-  <div class="col-md-6">
-    <h3>{{event.place}}</h3>
+  <div class="col-md-3">
+    <h3>Place: {{event.place}}</h3>
   </div>
-  <div class="col-md-6">
-    <h3>{{event.time}}</h3>
+  <div class="col-md-3">
+    <h3>Time: {{event.time}}</h3>
+  </div>
+  <div class="col-md-3">
+    <h3>Host: {{event.user.username}}</h3>
+  </div>
+  <div class="col-md-3">
+    <h3>Items: {{event.user.items.name}}</h3>
   </div>
 </div>
+{{#each event.user.items as |item| }}
+<div class="row align-center mb-5">
+  <div class="col-md-4">
+    <h2>Item.name: {{item.name}}</h2>
+  </div>
+  <div class="col-md-4">
+    <h3>Item.event_id: {{item.event.name}}</h3>
+  </div>
+  <div class="col-md-4">
+    <h3>item.user_id: {{item.user_id}}</h3>
+  </div>
+  <div class="col-md-4">
+    <h3>Item.user.name: {{item.user.name}}</h3>
+  </div>
+</div>
+{{/each}}
+{{/each}}
+{{#each userEvents.user.items.event as |event| }}
+<h1>Events where {{event.user.username}} has agreed to bring Items</h1>
 {{/each}}
