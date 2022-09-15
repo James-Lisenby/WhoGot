@@ -7,21 +7,32 @@ const connection = require('../config/connection');
 router.get('/', withAuth, async (req, res) => {
   try {
 
-    const loggedInUser = req.session.user_id;
-
-    // find all events WHERE LOGGED-USER is host or has claimed an item
-    const userEventData = await Event.findAll({
+    // find all events WHERE LOGGED-USER is host
+    const hostedEventData = await Event.findAll({
       
       where: {
-        // host_user_id === logged in user || where claimed_user_id === logged in user
-        host_user_id: loggedInUser
+        // host_user_id === logged in user
+        host_user_id: req.session.user_id
       }
     });
 
-    const users = userData.map((project) => project.get({ plain: true }));
+    const hostedEvents = hostedEventData.map((hostedEvent) => hostedEvent.get({ plain: true }));
+
+
+      // find all events WHERE LOGGED-USER is host or has claimed an item
+      const claimedItemData = await Event.findAll({
+      
+        where: {
+          // host_user_id === logged in user || where claimed_user_id === logged in user
+          host_user_id: req.session.user_id
+        }
+      });
+  
+      const claimedItems = claimedItemData.map((claimedItem) => claimedItem.get({ plain: true }));
 
     res.render('homepage', {
-      users,
+      hostedEvents,
+      claimedItems,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -44,9 +55,10 @@ router.get('/login', (req, res) => {
 
 // GET Route "/event/:id" - get a specific event from url
 
+// POST Route "/event/:id" - 
+
 // POST Route "event/new" - POSTs new event data from form to whogot_db
 
-// POST Route "/event/:id?chips=claim+tent=unclaim" - POSTs claim or unclaimed button clicks for the event
 
 
 module.exports = router;
