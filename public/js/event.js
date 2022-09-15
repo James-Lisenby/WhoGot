@@ -143,6 +143,15 @@ const renderEventList = async (events) => {
 
         liEl.append(spanEl);
 
+
+        // $('.clipboard').on ('click', funtion() {
+            //$("body").append($temp);
+            //$temp.val($url).select();
+            // document.execCommand("copy");
+            //$temp.remove();
+            //$("p").text("URL copied")
+        //})
+
         if (delBtn) {
             const delBtnEl = document.createElement('i');
             delBtnEl.classList.add(
