@@ -152,6 +152,20 @@ const renderEventList = async (events) => {
             //$("p").text("URL copied")
         //})
 
+        // eventField
+
+        // if / when no text is entered, 
+        // don't allow any buttons to be clicked
+        // show a prompt or message asking for the text to be entered  
+        // final thoughts 
+        // else {
+            // do proceed if when text is entered
+        //                                        }
+         
+
+    
+
+
         if (delBtn) {
             const delBtnEl = document.createElement('i');
             delBtnEl.classList.add(
