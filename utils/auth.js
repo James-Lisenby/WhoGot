@@ -30,3 +30,5 @@ module.exports = {
   withAuthApi,
   withNoAuth,
 };
+
+// Added the addiontanl const's.

@@ -21,3 +21,5 @@ router.post('/', withAuthApi, async (req, res) => {
 
 
 module.exports = router; 
+
+// Will be the post route to create a new event. Still in progress.

@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../models');
-const withAuth = require('../utils/auth');
+const { withAuth }  = require('../utils/auth');
 
 // Route "/"
 
@@ -32,6 +32,27 @@ router.get('/login', (req, res) => {
 
   res.render('login');
 });
+
+
+
+router.get('/user-events', withAuth, async (req, res) => {
+
+  const userData = await User.findByPk(req.session.user_id, {
+    attributes: ['id', 'username'],
+    include: Event
+  });
+
+  const user = userData.toJSON();
+
+  console.log(user);
+
+  res.render('user-events', {
+    user,
+    logged_in: req.session.logged_in,
+  })
+});
+// Once the handlebars for the user events page is made, this route will be used to get all events associated to the logged in user.
+
 
 module.exports = router;
 
