@@ -7,7 +7,7 @@ let exportEventBTN;
 let eventList;
 
 if (window.location.pathname === '/events.js'){
-    eventTitle = document.querySelector('.note-title');
+    eventTitle = document.querySelector('.event-title');
     eventText = document.querySelector('.event-textarea');
     createNewEventBTN = document.querySelector('.create-new-event');
     deleteEventBTN = document.querySelector('.deleteEvent');
@@ -143,14 +143,23 @@ const renderEventList = async (events) => {
 
         liEl.append(spanEl);
 
+
+        // $('.clipboard').on ('click', funtion() {
+            //$("body").append($temp);
+            //$temp.val($url).select();
+            // document.execCommand("copy");
+            //$temp.remove();
+            //$("p").text("URL copied")
+        //})
+
         if (delBtn) {
             const delBtnEl = document.createElement('i');
             delBtnEl.classList.add(
-                //placeholder
-                //placeholder
-                //placeholder
-                //placeholder
-
+                'fas',
+                'fa-trash-alt',
+                'float-right',
+                'text-danger',
+                'delete-event' 
             );
 
             delBtnEl.addEventListener('click', handleEventDelete);
@@ -161,7 +170,7 @@ const renderEventList = async (events) => {
         return liEl
     };
 
-    if (jsonEvents.lenght === 0) {
+    if (jsonEvents.length === 0) {
         eventListItems.push(createLi('No saved events', false));    
     }
 

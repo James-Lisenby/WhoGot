@@ -4,32 +4,33 @@ const sequelize = require('../config/connection');
 class Event extends Model {}
 
 Event.init(
-  { id: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    primaryKey: true,
-    autoIncrement: true,
-  },
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
     name: {
       type: DataTypes.STRING(30),
-      allowNull: false
+      allowNull: false,
     },
     time: {
       type: DataTypes.DATE,
-      allowNull: false
+      allowNull: false,
     },
     place: {
       type: DataTypes.STRING(100),
-      allowNull: false
+      allowNull: false,
     },
     host_user_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'user',
-        key: 'id'
-      }
+        key: 'id',
+      },
     },
-   // Deleted items columb due to redundance 
+    // Deleted items columb due to redundance
   },
   {
     sequelize,

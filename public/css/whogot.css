@@ -1,0 +1,27 @@
+body {
+  background-image: url(/Resources/images/photo-1568089523686-dd5ccd208761.jpeg);
+  background-color: aqua;
+  background-size: cover;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+h1 {
+  color: purple;
+}
+
+form login-form {
+}
+
+#login {
+  color: black;
+  background-color: #fa8072;
+}
+
+#signup {
+  color: black;
+  background-color: #02a9ea;
+}
