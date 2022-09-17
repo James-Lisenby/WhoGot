@@ -7,7 +7,7 @@ let exportEventBTN;
 let eventList;
 
 if (window.location.pathname === '/events.js'){
-    eventTitle = document.querySelector('.note-title');
+    eventTitle = document.querySelector('.event-title');
     eventText = document.querySelector('.event-textarea');
     createNewEventBTN = document.querySelector('.create-new-event');
     deleteEventBTN = document.querySelector('.deleteEvent');
@@ -143,6 +143,29 @@ const renderEventList = async (events) => {
 
         liEl.append(spanEl);
 
+
+        // $('.clipboard').on ('click', funtion() {
+            //$("body").append($temp);
+            //$temp.val($url).select();
+            // document.execCommand("copy");
+            //$temp.remove();
+            //$("p").text("URL copied")
+        //})
+
+        // eventField
+
+        // if / when no text is entered, 
+        // don't allow any buttons to be clicked
+        // show a prompt or message asking for the text to be entered  
+        // final thoughts 
+        // else {
+            // do proceed if when text is entered
+        //                                        }
+         
+
+    
+
+
         if (delBtn) {
             const delBtnEl = document.createElement('i');
             delBtnEl.classList.add(
@@ -161,7 +184,7 @@ const renderEventList = async (events) => {
         return liEl
     };
 
-    if (jsonEvents.lenght === 0) {
+    if (jsonEvents.length === 0) {
         eventListItems.push(createLi('No saved events', false));    
     }
 

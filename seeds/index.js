@@ -13,12 +13,12 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  await Item.bulkCreate(itemData, {
+  await Event.bulkCreate(eventData, {
     individualHooks: true,
     returning: true,
   });
 
-  await Event.bulkCreate(eventData, {
+  await Item.bulkCreate(itemData, {
     individualHooks: true,
     returning: true,
   });

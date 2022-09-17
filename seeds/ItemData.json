@@ -3,7 +3,7 @@
     "name": "Flour",
     "quantity": 1,
     "cost": 25,
-    "event_id": 4, 
+    "event_id": 1, 
     "user_id": 1
    
     
@@ -12,8 +12,8 @@
     "name": "Apples",
     "quantity": 10,
     "cost": 14,
-    "event_id": 1,
-    "user_id": 2
+    "event_id": 3,
+    "user_id": 1
   },
   { "id": 3,
     "name": "Sugar",
