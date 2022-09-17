@@ -1,8 +1,27 @@
 <center>
+<header>
+    
+<nav class="nav" id="user.profile">   {{!--  user profile nav--}}
+    <ul class="nav_list">
+        <li>
+            <div id="logout">LogOut</div>
+        </li>
+    </ul>
+</nav>
+    </header>
 
-<div class="User_Profile"></div>
-<h1 class="profile_name">User Name</h1>
 
+
+<div class="user_profile"></div>   {{!-- user profile information --}}
+
+<h1 class="profile_name">User Name</h1>  {{!-- profile name and scheduled Events --}}
+ <div class="show_events">
+     <ul>
+         Your Events
+         <li>Placeholder Event</li>   {{!-- events appended here --}}
+     </ul>
+      </div>
+      <div id="add_event">Add Event</div> {{!-- add eventlistener to the button --}}
 
 
 
