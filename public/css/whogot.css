@@ -2,6 +2,7 @@ body {
   background-image: url(/Resources/images/photo-1568089523686-dd5ccd208761.jpeg);
   background-color: aqua;
   background-size: cover;
+  min-height: 100%;
 }
 
 html,
