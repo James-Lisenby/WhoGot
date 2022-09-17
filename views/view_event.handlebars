@@ -1,8 +1,11 @@
-{{#each viewedEvent as |event| }}
-<h1>Events Hosted by {{event.user.username}}</h1>
+<h1>Events Hosted by {{viewedEvent.user.username}}</h1>
 <div class="row align-center mb-5">
   <div class="col-md-3">
-    <h2>Event Name: {{event.name}}</h2>
+    <h2>Event Name: {{viewedEvent.name}}</h2>
+    <ul>
+      {{#each viewedEvent.item as |item|}}
+      <li>{{item.name}} <span>{{item.user_id}}</span></li>
+      {{/each}}
+    </ul>
   </div>
 </div>
-{{/each}}
