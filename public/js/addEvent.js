@@ -1,16 +1,36 @@
 
 // NOTHING ON THIS PAGE HAS BEEN CHANGED TO FIT OUR PROJECT. 
 
-const addFoodFormHandler = async (event) => {
+const addeventFormHandler = async (event) => {
     event.preventDefault();
+
+    // created newEvent objects
+
+    // objects created
+
+    // new constrants 
+
   
-    const name = document.querySelector('#food-name-add-food').value.trim();
-    const quantity = document.querySelector('#quantity-add-food').value.trim();
-  
-    if (name && quantity) {
-      const response = await fetch('/api/fooditem', {
+    const newEvent = {
+
+       name: document.quereySelector('#event_name').value.trim(),
+       place: document.quereySelector('#event_location').value.trim(),
+       time: document.quereySelector('#event_time').value.trim(),
+       date: document.quereySelector('#event_date').value.trim(),
+       username: document.quereySelector('#event_host').value.trim(),
+       itemName: document.quereySelector('#event_item').value.trim(),
+    };
+
+   
+
+    
+  // created a new function to sort the ids
+    if (newEvent.name && newEvent.place && newEvent.time && newEvent.date && newEvent.username && newEvent.itemName) {
+      // new api
+      const response = await fetch('/api/new-event', {
         method: 'POST',
-        body: JSON.stringify({ name, quantity }),
+        // new const
+        body: JSON.stringify({ newEventname }),
         headers: { 'Content-Type': 'application/json' },
       });
   
@@ -23,7 +43,8 @@ const addFoodFormHandler = async (event) => {
   };
   
   document
-    .querySelector('.add-food-form')
-    .addEventListener('submit', addFoodFormHandler);
+  // new forms and eventhandlers
+    .querySelector('.add-event-form')
+    .addEventListener('submit', addEventFormHandler);
 
     // NOTHING ON THIS PAGE HAS BEEN CHANGED TO FIT OUR PROJECT. 

@@ -1,6 +1,11 @@
+<!-- changed the ids -->
 
+<!-- created submit button -->
+
+<!-- created forms -->
 <center>
 {{#each userEvents as |event| }}
+<Form>
 <h1>Events Hosted by {{event.user.username}}</h1>
  <label for="event_host">Insert Event Host (User Name or Entity)</label>
 <input type="text" name="event_host" id="username">
@@ -8,12 +13,12 @@
   <div class="col-md-3">
     <h2>Event Name: {{event.name}}</h2>
         <label for="event_name">What's The Event ?</label>
-    <input type="text" name="event_name" id="user_event">
+    <input type="text" name="event_name" id="event_name">
   </div>
   <div class="col-md-3">
     <h3>Place: {{event.place}}</h3>
     <label for="event_location">Where?</label>
-    <input type="text" name="event_location" id="user_event_location">
+    <input type="text" name="event_location" id="event_location">
   </div>
 
   <div class="col-md-3">
@@ -31,8 +36,11 @@
   <div class="col-md-3">
     <h3>Items: {{event.user.items.name}}</h3>
        <label for="input_item">What's The Event ?</label>
-    <input type="submit" value="Send Request" name="input_item" id="user_event">
+    <input type="submit"  value="Send Request" name="input_item" id="event_item">
+    <button id="add_item" name="add_item"></button>
   </div>
+  <button type="submit">submit</button>
+  </Form>
 </div>
 {{#each event.user.items as |item| }}
 
