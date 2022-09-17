@@ -74,11 +74,18 @@ router.get('/event/:id', withAuth, async (req, res) => {
 
     // find event with id that matches /:id param in url
     const viewedEventData = await Event.findByPk(viewedEventId, {
-      include: Item,
+      include: [{
+        model: Item, 
+        include: {
+          model: User,
+          attributes: { exclude: ['password'] },
+        }
+      }, 
+      { model: User }],
     });
 
-    //serializes data
-    const viewedEvent = viewedEventData.map((theEvent) => theEvent.get({ plain: true }));
+    // //serializes data
+    const viewedEvent = viewedEventData.get({ plain: true });
 
     console.log(`THIS IS VIEWED EVENT: ${viewedEvent}`);
 
