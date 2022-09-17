@@ -1,5 +1,13 @@
 
-// NOTHING ON THIS PAGE HAS BEEN CHANGED TO FIT OUR PROJECT. 
+// NOTHING ON THIS PAGE HAS BEEN CHANGED TO FIT OUR PROJECT.
+
+// Stores data from form input elements
+
+// JSON.stringifys the data
+
+// Sends POST req with json formatted data
+
+// listens for 200 status response
 
 const addeventFormHandler = async (event) => {
     event.preventDefault();
