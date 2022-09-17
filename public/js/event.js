@@ -18,13 +18,13 @@ if (window.location.pathname === '/events.js'){
     eventList = document.querySelector('.list-container, list-group');
 }
 
-const show = (elem) => {
-    elem.style.display = 'inline';
-};
+//const show = (elem) => {
+    //elem.style.display = 'inline';
+//};
 
-const hide = (elem) => {
-    elem.style.display = 'none';
-};
+//const hide = (elem) => {
+  //  elem.style.display = 'none';
+//};
 
 let activeEvent = {};
 
@@ -68,21 +68,21 @@ fetch('/api/events', {
     },
 });
 
-const renderActiveEvent = () => {
-    hide(saveEventBTN);
+//const renderActiveEvent = () => {
+  //  hide(saveEventBTN);
 
-    if (activeEvent.id) {
-        eventTitle.setAttribute('readonly', true);
-        eventText.setAttribute('readonly', true);
-        eventTitle.value = activeEvent.title;
-        eventText.value = activeEvent.text
-    } else {
-        eventTitle.removeAttribute('readonly');
-        eventText.removeAttribute('readonly');
-        eventTitle.value = '';
-        eventText.value = '';
-    }
-};
+  //  if (activeEvent.id) {
+    //    eventTitle.setAttribute('readonly', true);
+    //    eventText.setAttribute('readonly', true);
+    //    eventTitle.value = activeEvent.title;
+    //    eventText.value = activeEvent.text
+  //  } else {
+    //    eventTitle.removeAttribute('readonly');
+   //     eventText.removeAttribute('readonly');
+  //      eventTitle.value = '';
+   //     eventText.value = '';
+   // }
+//};
 
 const handleEventSave = () => {
     const createNewEvent = {
@@ -175,7 +175,7 @@ const renderEventList = async (events) => {
                 'fa-trash-alt',
                 'float-right',
                 'text-danger',
-                'delete-event' 
+                'delete-event'       
             );
 
             delBtnEl.addEventListener('click', handleEventDelete);
