@@ -1,3 +1,5 @@
+// It seems like event.js should handle interaction on the single event view.
+
 let eventText;
 let eventTitle;
 let createNewEventBTN;

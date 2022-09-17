@@ -1,3 +1,6 @@
+
+// NOTHING ON THIS PAGE HAS BEEN CHANGED TO FIT OUR PROJECT. 
+
 const addFoodFormHandler = async (event) => {
     event.preventDefault();
   
