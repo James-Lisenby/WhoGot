@@ -1,39 +1,44 @@
+
+<center>
 {{#each userEvents as |event| }}
 <h1>Events Hosted by {{event.user.username}}</h1>
+ <label for="event_host">Insert Event Host (User Name or Entity)</label>
+<input type="text" name="event_host" id="username">
 <div class="row align-center mb-5">
   <div class="col-md-3">
     <h2>Event Name: {{event.name}}</h2>
+        <label for="event_name">What's The Event ?</label>
+    <input type="text" name="event_name" id="user_event">
   </div>
   <div class="col-md-3">
     <h3>Place: {{event.place}}</h3>
+    <label for="event_location">Where?</label>
+    <input type="text" name="event_location" id="user_event_location">
   </div>
+
   <div class="col-md-3">
     <h3>Time: {{event.time}}</h3>
+ <label for="event_time">Scheduled Time?</label>
+ <input type="time" id="event_time" name="event_time" min="00:00" max="23:59" required >
+ <h4>Date: {{event.date}} </h4>
+ <label for="event_date">What Day?</label>
+ <input type="date" id="event_date" name="event_day" value="2022-02-19" min="2022-08-19" max="2023-01-01">
+
   </div>
   <div class="col-md-3">
     <h3>Host: {{event.user.username}}</h3>
   </div>
   <div class="col-md-3">
     <h3>Items: {{event.user.items.name}}</h3>
+       <label for="input_item">What's The Event ?</label>
+    <input type="submit" value="Send Request" name="input_item" id="user_event">
   </div>
 </div>
 {{#each event.user.items as |item| }}
-<div class="row align-center mb-5">
-  <div class="col-md-4">
-    <h2>Item.name: {{item.name}}</h2>
-  </div>
-  <div class="col-md-4">
-    <h3>Item.event_id: {{item.event.name}}</h3>
-  </div>
-  <div class="col-md-4">
-    <h3>item.user_id: {{item.user_id}}</h3>
-  </div>
-  <div class="col-md-4">
-    <h3>Item.user.name: {{item.user.name}}</h3>
-  </div>
-</div>
+
 {{/each}}
 {{/each}}
 {{#each userEvents.user.items.event as |event| }}
 <h1>Events where {{event.user.username}} has agreed to bring Items</h1>
 {{/each}}
+</center>
