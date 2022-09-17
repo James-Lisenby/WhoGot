@@ -1,10 +1,7 @@
 const router = require('express').Router();
-
-const { User } = require('../models');
 const { withAuth }  = require('../utils/auth');
-const { Exception } = require('handlebars');
+// const { Exception } = require('handlebars');
 const { User, Event, Item } = require('../models');
-const withAuth = require('../utils/auth');
 
 
 // Route "/" renders all of events related to logged in user and show: name, date, place, and host of event
@@ -22,6 +19,7 @@ router.get('/', withAuth, async (req, res) => {
       //eager loading includes associated items and the users associated with those items
       include: {
         model: User,
+        attributes: { exclude: ['password'] },
         include: {
           model: Item,
           include: {
@@ -53,7 +51,6 @@ router.get('/', withAuth, async (req, res) => {
 
 
 // Route "/login"
-
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
     res.redirect('/');
@@ -65,42 +62,37 @@ router.get('/login', (req, res) => {
 
 
 
+// single event view GET route
+router.get('/event/:id', withAuth, async (req, res) => {
 
-router.get('/user-events', withAuth, async (req, res) => {
+  try {
 
-  const userData = await User.findByPk(req.session.user_id, {
-    attributes: ['id', 'username'],
-    include: Event
-  });
+    // the url for a given event page will be set in the event handler where it sends the user to a new page which will be "/:id"
+    const viewedEventId = req.params.id;
 
-  const user = userData.toJSON();
+    console.log(viewedEventId);
 
-  console.log(user);
+    // find event with id that matches /:id param in url
+    const viewedEventData = await Event.findByPk(viewedEventId, {
+      include: Item,
+    });
 
-  res.render('user-events', {
-    user,
-    logged_in: req.session.logged_in,
-  })
+    //serializes data
+    const viewedEvent = viewedEventData.map((theEvent) => theEvent.get({ plain: true }));
+
+    console.log(`THIS IS VIEWED EVENT: ${viewedEvent}`);
+
+    res.render('view_event', {
+      viewedEvent,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
-// Once the handlebars for the user events page is made, this route will be used to get all events associated to the logged in user.
+
 
 
 module.exports = router;
-
-
-// Route "/events" - GETS all events associated with user
-//// GETS hosted events
-//// GETS attendee events
 
 // POST Route "/signup" - posts a new user to Users.js
-
-
-// GET Route "/event/:id" - get a specific event from url
-
-// POST Route "/event/:id" - 
-
-// POST Route "event/new" - POSTs new event data from form to whogot_db
-
-
-
-module.exports = router;
