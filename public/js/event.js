@@ -1,3 +1,5 @@
+// It seems like event.js should handle interaction on the single event view.
+
 let eventText;
 let eventTitle;
 let createNewEventBTN;
@@ -151,6 +153,20 @@ const renderEventList = async (events) => {
             //$temp.remove();
             //$("p").text("URL copied")
         //})
+
+        // eventField
+
+        // if / when no text is entered, 
+        // don't allow any buttons to be clicked
+        // show a prompt or message asking for the text to be entered  
+        // final thoughts 
+        // else {
+            // do proceed if when text is entered
+        //                                        }
+         
+
+    
+
 
         if (delBtn) {
             const delBtnEl = document.createElement('i');
