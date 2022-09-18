@@ -1,20 +1,40 @@
-body {
+html {
   background-image: url(/Resources/images/photo-1568089523686-dd5ccd208761.jpeg);
   background-color: aqua;
+
   background-size: cover;
   min-height: 100%;
+  margin: 15px;
+  margin-top: 0px;
+  padding: 25px;
 }
 
-html,
 body {
-  min-height: 100%;
+  min-height: fit-content;
+  color: #2176ae;
+}
+
+form {
+  margin: 50px;
 }
 
 h1 {
   color: purple;
 }
 
-form login-form {
+input :focus {
+  box-sizing: border-box;
+}
+
+input {
+  background-image: url(/public/Resources/Figma/spork.jpeg);
+  color: black;
+  size: 10px;
+  width: fit-content;
+}
+
+::placeholder {
+  color: black;
 }
 
 #login {
@@ -25,4 +45,39 @@ form login-form {
 #signup {
   color: black;
   background-color: #02a9ea;
+}
+
+.button {
+  box-shadow: 5px 10px #2176ae;
+}
+
+.btn_sig {
+  box-shadow: 5px 10px #fa8072;
+}
+
+#welcome_message,
+#sign_up_header {
+  background-color: whitesmoke;
+  opacity: 1;
+  /* text-decoration: solid; */
+  width: fit-content;
+}
+
+h2 {
+  width: fit-content;
+}
+
+div {
+  /* background-color: lightgrey; */
+
+  opacity: 1;
+}
+
+#hosted_by {
+  background-color: white;
+}
+
+#event_div {
+  display: flex;
+  background-color: lightgray;
 }
