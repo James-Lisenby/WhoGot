@@ -4,6 +4,8 @@
 
 <!-- created forms -->
 <center>
+  {{#each userEvents as |event| }}
+
   <Form>
     <h1>Events Hosted by {{event.user.username}}</h1>
     <label for="event_host">Insert Event Host (User Name or Entity)</label>
@@ -43,8 +45,16 @@
       <button type="submit">submit</button>
     </Form>
   </div>
+  
+{{#each event.user.items as |item| }}
+
+{{/each}}
+{{/each}}
+{{#each userEvents.user.items.event as |event| }}
 
   <h1>Events where {{event.user.username}} has agreed to bring Items</h1>
+{{/each}}
+
 </center>
 
 <script src="/js/addEvent.js"></script>
