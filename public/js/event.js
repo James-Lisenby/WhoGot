@@ -145,20 +145,23 @@ const renderEventList = async (events) => {
 
         liEl.append(spanEl);
 
+        //const $exportEvent = $("<input>");
+        //const $url = $(location.attr('href'))
 
-        // $('.clipboard').on ('click', funtion() {
-            //$("body").append($temp);
-            //$temp.val($url).select();
-            // document.execCommand("copy");
-            //$temp.remove();
-            //$("p").text("URL copied")
+
+         //$('.exportEvent').on ('click', funtion() {
+           // $("body").append($exportEvent);
+            //$exportEvent.val($url).select();
+             //document.execCommand("copy");
+            //$exportEvent.remove();
+           // $("p").text("URL copied")
         //})
 
         // eventField
 
         // if / when no text is entered, 
         // don't allow any buttons to be clicked
-        // show a prompt or message asking for the text to be entered  
+        // show a message asking for the text to be entered  
         // final thoughts 
         // else {
             // do proceed if when text is entered
