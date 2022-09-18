@@ -18,20 +18,20 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     console.log("POST request called");
-    const dbUserData = await User.create({
+    const userData = await User.create({
     //id: 6,
       username: req.body.username,
       email: req.body.email,
       password: req.body.password,
     });
 
-    console.log(dbUserData);
+    console.log("POST request ran");
+
+    req.session.user_id = userData.id;
+    req.session.logged_in = true;
 
     req.session.save(() => {
-      req.session.user_id = dbUserData.id;
-      req.session.logged_in = true;
-
-      res.status(200).json(dbUserData);
+      res.status(200).json(userData);
     });
   } catch (err) {
     console.log(err);

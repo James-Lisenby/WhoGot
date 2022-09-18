@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { withAuth }  = require('../utils/auth');
+const { withAuth, withNoAuth }  = require('../utils/auth');
 // const { Exception } = require('handlebars');
 const { User, Event, Item } = require('../models');
 
@@ -56,10 +56,12 @@ router.get('/login', (req, res) => {
     res.redirect('/');
     return;
   }
-
   res.render('login');
 });
 
+router.get('/signup', withNoAuth, (req, res) => {
+  res.render('signup');
+});
 
 
 // single event view GET route
