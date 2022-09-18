@@ -38,7 +38,7 @@ const addeventFormHandler = async (event) => {
       const response = await fetch('/api/new-event', {
         method: 'POST',
         // new const
-        body: JSON.stringify({ newEventname }),
+        body: JSON.stringify({ newEvent }),
         headers: { 'Content-Type': 'application/json' },
       });
   

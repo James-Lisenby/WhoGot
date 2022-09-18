@@ -98,7 +98,15 @@ router.get('/event/:id', withAuth, async (req, res) => {
   }
 });
 
+// Route "/new-event"
+router.get('/new-event', (req, res) => {
+  if (!req.session.logged_in) {
+    res.redirect('/login');
+    return;
+  }
 
+  res.render('create_event');
+});
 
 module.exports = router;
 

@@ -2,20 +2,20 @@
 
 let eventText;
 let eventTitle;
-let createNewEventBTN;
+const createNewEventBTN = document.querySelector('#add-new-event');
 let deleteEventBTN;
 let saveEventBTN;
 let exportEventBTN;
 let eventList;
 
-if (window.location.pathname === '/events.js'){
-    eventTitle = document.querySelector('.event-title');
-    eventText = document.querySelector('.event-textarea');
-    createNewEventBTN = document.querySelector('.create-new-event');
-    deleteEventBTN = document.querySelector('.deleteEvent');
-    saveEventBTN = document.querySelector('.saveEvent');
-    exportEventBTN = document.querySelector('.exportEvent')
-    eventList = document.querySelector('.list-container, list-group');
+// if (window.location.pathname === '/events.js'){
+//     eventTitle = document.querySelector('.event-title');
+//     eventText = document.querySelector('.event-textarea');
+//     // createNewEventBTN = document.querySelector('.create-new-event');
+//     deleteEventBTN = document.querySelector('.deleteEvent');
+//     saveEventBTN = document.querySelector('.saveEvent');
+//     exportEventBTN = document.querySelector('.exportEvent')
+//     eventList = document.querySelector('.list-container, list-group');
 }
 
 //const show = (elem) => {
