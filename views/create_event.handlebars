@@ -4,57 +4,40 @@
 
 <!-- created forms -->
 <center>
-  {{#each userEvents as |event| }}
-
-  <Form>
-    <h1>Events Hosted by {{event.user.username}}</h1>
-    <label for="event_host">Insert Event Host (User Name or Entity)</label>
-    <input type="text" name="event_host" id="username">
+  <h1>Events Hosted by {{event.user.username}}</h1>
+  <form>
+    {{!-- The username will be pulled directly from the session object before the request is sent
+     <label for="event_host">Insert Event Host (User Name or Entity)</label>
+    <input type="text" name="event_host" id="username"> --}}
     <div class="row align-center mb-5">
       <div class="col-md-3">
-        <h2>Event Name: {{event.name}}</h2>
+        <h2>Event Name:</h2>
             <label for="event_name">What's The Event ?</label>
         <input type="text" name="event_name" id="event_name">
       </div>
       <div class="col-md-3">
-        <h3>Place: {{event.place}}</h3>
+        <h3>Place:</h3>
         <label for="event_location">Where?</label>
         <input type="text" name="event_location" id="event_location">
       </div>
 
       <div class="col-md-3">
-        <h3>Time: {{event.time}}</h3>
+        <h3>Time:</h3>
     <label for="event_time">Scheduled Time?</label>
     <input type="time" id="event_time" name="event_time" min="00:00" max="23:59" required >
-    <h4>Date: {{event.date}} </h4>
+    <h4>Date:</h4>
     <label for="event_date">What Day?</label>
     <input type="date" id="event_date" name="event_day" value="2022-02-19" min="2022-08-19" max="2023-01-01">
 
       </div>
+      {{!-- The username will be pulled directly from the session object before the request is sent 
       <div class="col-md-3">
         <h3>Host: {{event.user.username}}</h3>
-      </div>
-      <div class="col-md-3">
-        <h3>Items: {{event.user.items.name}}</h3>
-          <label for="input_item">What's The Event ?</label>
+      </div> --}}
 
-        <input type="submit"  value="Send Request" name="input_item" id="event_item">
-        <button id="add_item" name="add_item"></button>
-
-      </div>
       <button type="submit">submit</button>
-    </Form>
+    </form>
   </div>
-  
-{{#each event.user.items as |item| }}
-
-{{/each}}
-{{/each}}
-{{#each userEvents.user.items.event as |event| }}
-
-  <h1>Events where {{event.user.username}} has agreed to bring Items</h1>
-{{/each}}
-
 </center>
 
 <script src="/js/addEvent.js"></script>
