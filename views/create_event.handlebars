@@ -1,40 +1,31 @@
-<!-- changed the ids -->
 
-<!-- created submit button -->
-
-<!-- created forms -->
 <center>
   <h1 id="hosted_by">Events Hosted by {{event.user.username}}</h1>
   <form>
-    {{!-- The username will be pulled directly from the session object before the request is sent
-     <label for="event_host">Insert Event Host (User Name or Entity)</label>
-    <input type="text" name="event_host" id="username"> --}}
+ {{!-- create event inputs --}}
     <div class="hero create_container is-info" id="create_event">
       <div class="hero-body col-md-3">
         <h2 class="title">Event Name:</h2>
             <label for="event_name"></label>
         <input class="input is-normal"type="text" name="event_name" id="event_name" placeholder="Event Name">
       </div>
+      {{!-- event location --}}
       <div class="col-md-3">
         <h3 class="subtitle">Place:</h3>
         <label for="event_location"></label>
         <input class="input" type="text" name="event_location" id="event_location" placeholder="Location">
       </div>
-
+{{!-- event time --}}
       <div class="col-md-3">
         <h3 class="subtitle">Time:</h3>
     <label for="event_time"></label>
     <input class="input" type="time" id="event_time" name="event_time" min="00:00" max="23:59" required >
+    {{!-- event date --}}
     <h4 class="subtitle">Date:</h4>
     <label for="event_date"></label>
     <input class="input"  type="date" id="event_date" name="event_day" value="2022-02-19" min="2022-08-19" max="2023-01-01">
 
-    
-      {{!-- The username will be pulled directly from the session object before the request is sent 
-      <div class="col-md-3">
-        <h3>Host: {{event.user.username}}</h3>
-      </div> --}}
-
+{{!-- Home and Submit Buttons  --}}
       <button class="button" type="submit" id="add-event-form ">Submit</button>
   <button class="button " type="submit" id="home_btn">Home</button>
   </div>
