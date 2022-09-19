@@ -6,6 +6,7 @@
 
 const addEventFormHandler = async (event) => {
     event.preventDefault();
+    debugger;
 
     // created newEvent objects
 
@@ -33,11 +34,17 @@ console.log(`new sql datetime = '${time}'`);
       });
 
       console.log(response);
+      debugger;
+
   
       if (response.ok) {
+        debugger;
+
         //this could be problematic. Make sure there is an event_id property in the response. it may need to be response.createdEvent.id
         document.location.replace(`'/event/${response.id}'`);
       } else {
+        debugger;
+
         alert('Failed to create new event.');
       }
     }

@@ -25,7 +25,7 @@ const signupFormHandler = async (event) => {
       debugger;
 
       if (response.ok) {
-        document.location.replace('/new-user');
+        document.location.replace('/');
         console.log("url replaced");
         debugger;
 
