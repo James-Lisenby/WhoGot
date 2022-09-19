@@ -1,3 +1,8 @@
+var validator = require("email-validator");
+validator.validate("test@email.com"); 
+
+
+
 const loginFormHandler = async (event) => {
   event.preventDefault();
 
@@ -31,10 +36,14 @@ const signupFormHandler = async (event) => {
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
 
-  if (username && email && password) {
+  const validatedEmail = validator.validate(email);
+  // Takes the email input and runs it throught the validator function to make sure it is an email.
+
+  if (username && validatedEmail && password) {
+    // The validated Email is ran through instead.
     const response = await fetch('/api/users', {
       method: 'POST',
-      body: JSON.stringify({ username, email, password }),
+      body: JSON.stringify({ username, validatedEmail, password }),
       headers: { 'Content-Type': 'application/json' },
     });
 
