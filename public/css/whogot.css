@@ -56,6 +56,10 @@ li {
   width: fit-content;
 }
 
+form {
+  width: fit-content;
+}
+
 /* classes */
 ::placeholder {
   color: black;
@@ -137,13 +141,6 @@ li {
 
 .create_container {
   background-color: lightgrey;
-  /* border-radius:  25px;  */
-  /* width: 30%;
-
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
-  font-weight: 600;
-  color: white; */
 }
 
 .form {
@@ -163,6 +160,7 @@ li {
 #welcome_message,
 #sign_up_header {
   background-color: whitesmoke;
+  border-radius: 25px;
   opacity: 1;
 
   width: fit-content;
@@ -193,19 +191,25 @@ li {
 #email-signup,
 #email-username,
 #password-signup,
+#create_event {
+  border-radius: 25px;
+  width: fit-content;
+}
+
+#event_div {
+  width: 50%;
+}
+
 #event_name,
 #event_location,
 #event_time,
-#event_date,
-#create_event,
-#welcome_message,
-#sign_up_header {
+#event_date {
   border-radius: 25px;
 }
-
-#event_div{
-  width: 50%;
-}
+/* #password-login
+#email-login{
+  
+} */
 
 /* #event_time {
 }
