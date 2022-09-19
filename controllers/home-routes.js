@@ -1,8 +1,7 @@
 const router = require('express').Router();
 const { withAuth }  = require('../utils/auth');
-// const { Exception } = require('handlebars');
+const { Exception } = require('handlebars');
 const { User, Event, Item } = require('../models');
-
 
 // Route "/" renders all of events related to logged in user and show: name, date, place, and host of event
 router.get('/', withAuth, async (req, res) => {
@@ -121,15 +120,6 @@ router.get('/', withAuth, async (req, res) => {
       where: {
         host_user_id: loggedInUser,
       },
-      //eager loading includes associated items and the users associated with those items
-      // include: {
-      //   model: User,
-      //   attributes: { exclude: ['password'] },
-      //   // include: [{
-      //   //   model: Event,
-      //   //   through: Item,
-      //   // }],
-      // },
     });
 
     // serializes data
