@@ -1,12 +1,12 @@
 {{#each userEvents as |event| }}
-
+<div class="card" id="event_div">
 <h1 id="hosted_by">Events Hosted by {{event.user.username}}</h1>
 {{!-- event div --}}
-<div class="row align-center mb-5" id="event_div">
-  <div class="col-md-3">
+
+  <div class="col-md-3" id="event_name">
     <h2>Event Name: {{event.name}}</h2>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-3" id="event_place">
     <h3>Place: {{event.place}}</h3>
   </div>
   <div class="col-md-3">
@@ -22,7 +22,7 @@
 {{!-- event div --}}
 {{!-- todo style divs as cards --}}
 {{#each event.user.items as |item| }}
-<div class="row align-center mb-5" id="event_div">
+<div class="card" id="event_div">
   <div class="col-md-4">
     <h2>Item.name: {{item.name}}</h2>
   </div>
@@ -43,5 +43,5 @@
 {{/each}}
 
 <a href="/new-event">
-  <button id="add-new-event">Create New Event</button>
+  <button class="button" id="add-new-event create_event">Create New Event</button>
 </a>

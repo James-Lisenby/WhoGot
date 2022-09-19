@@ -1,3 +1,4 @@
+/* elements */
 html {
   background-image: url(/Resources/images/photo-1568089523686-dd5ccd208761.jpeg);
   background-color: aqua;
@@ -7,11 +8,13 @@ html {
   margin: 15px;
   margin-top: 0px;
   padding: 25px;
+  font-family: 'Varela Round', serif, sans-serif;
 }
 
 body {
   min-height: fit-content;
   color: #2176ae;
+  font-family: 'Varela Round', serif, sans-serif;
 }
 
 form {
@@ -33,9 +36,47 @@ input {
   width: fit-content;
 }
 
+h2 {
+  width: fit-content;
+}
+
+div {
+  /* background-color: lightgrey; */
+
+  opacity: 1;
+}
+
+/* classes */
 ::placeholder {
   color: black;
 }
+
+.button {
+  box-shadow: 5px 10px #2176ae;
+}
+
+.btn_sig {
+  box-shadow: 5px 10px #fa8072;
+}
+
+.card {
+  background-color: lightgray;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  font-weight: 600;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 #02a9ea;
+}
+
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
+}
+
+/* IDs */
 
 #login {
   color: black;
@@ -47,14 +88,6 @@ input {
   background-color: #02a9ea;
 }
 
-.button {
-  box-shadow: 5px 10px #2176ae;
-}
-
-.btn_sig {
-  box-shadow: 5px 10px #fa8072;
-}
-
 #welcome_message,
 #sign_up_header {
   background-color: whitesmoke;
@@ -63,21 +96,29 @@ input {
   width: fit-content;
 }
 
-h2 {
-  width: fit-content;
-}
-
-div {
-  /* background-color: lightgrey; */
-
-  opacity: 1;
-}
-
 #hosted_by {
   background-color: white;
 }
 
-#event_div {
+#event_name {
+  background-color: whitesmoke;
+  color: #02a9ea;
+}
+
+#event_place {
+  background-color: whitesmoke;
+  color: #fa8072;
+}
+
+/* #event_div {
   display: flex;
   background-color: lightgray;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+} */
+
+/* #create_event {
 }
+
+#logout {
+} */
