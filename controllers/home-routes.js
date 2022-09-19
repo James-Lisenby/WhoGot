@@ -7,7 +7,7 @@ const { User, Event, Item } = require('../models');
 router.get('/', withAuth, async (req, res) => {
 
   try {
-
+    debugger;
     const loggedInUser = req.session.user_id;
 
     // find all events WHERE LOGGED-USER is host
@@ -27,22 +27,37 @@ router.get('/', withAuth, async (req, res) => {
         }
       }
     });
+
     //serializes data
     const userEvents = userEventData.map((userEvent) => userEvent.get({ plain: true }));
+
+    //store if they are new user
+    let eventsExist = true;
+    if(userEvents.length < 1) {
+      eventsExist = false;
+      res.render('new_user', {
+        eventsExist,
+        loggedInUser,
+        userEvents,
+        logged_in: req.session.logged_in,
+      });
+    } else {
+    console.log(eventsExist);
 
     // we need lots of middleware to transform this data and do little conditionals like "is user bringing items to event"
 
     // need to add conditionals in handlebars to test if we should render various object properties such as items user is bringing to event if they are bringing any
     
     console.log(userEvents);
-    console.log(userEvents[1].user.items);
-    console.log(userEvents[1].user.items[1].event);
 
     res.render('homepage', {
+      eventsExist,
       loggedInUser,
       userEvents,
       logged_in: req.session.logged_in,
     });
+  }
+
   } catch (err) {
     res.status(500).json(err);
   }
@@ -109,7 +124,11 @@ router.get('/new-event', (req, res) => {
 
 
 
-// POST Route "/signup" - posts a new user to Users.js
+//send a new user to /new-user
+router.get('/new-user', withAuth, (req, res) => {
+
+  res.render('new_user');
+});
 
 
 // find all events WHERE LOGGED-USER is host

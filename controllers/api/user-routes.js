@@ -1,37 +1,60 @@
 const router = require('express').Router();
 const { User, Event, Item } = require('../../models');
+const validator = require('email-validator');
 
-// GET all users
-router.get('/', async (req, res) => {
-  try {
-    const userData = await User.findAll({
-      include: [{ model: Item }, { model: Event }],
-    });
-    res.status(200).json(userData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+// // GET all users
+// router.get('/', async (req, res) => {
+//   try {
+//     const userData = await User.findAll({
+//       include: [{ model: Item }, { model: Event }],
+//     });
+//     res.status(200).json(userData);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 // CREATE new user
 router.post('/', async (req, res) => {
   try {
-    const dbUserData = await User.create({
-      username: req.body.username,
-      email: req.body.email,
-      password: req.body.password,
-    });
+    validator.validate('test@email.com');
+    const emailIsValid = validator.validate(req.body.email);
+    console.log(emailIsValid);
+    debugger;
+
+    if (emailIsValid) {
+      const dbUserData = await User.create({
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.password,
+      });
+      console.log("dbUserData created");
+      console.log(dbUserData);
+      console.log(typeof dbUserData);
+      debugger;
+  
 
     req.session.save(() => {
-      req.session.user_id = userData.id;
+      req.session.user_id = dbUserData.id;
       req.session.logged_in = true;
 
       res.status(200).json(dbUserData);
+      debugger;
+
     });
+  } else {
+    console.error("invalid email");
+    debugger;
+  }
+  debugger;
+
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
+    debugger;
   }
+  debugger;
+
 });
 
 router.post('/login', async (req, res) => {
