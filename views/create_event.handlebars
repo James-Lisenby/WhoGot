@@ -4,30 +4,30 @@
 
 <!-- created forms -->
 <center>
-  <h1>Events Hosted by {{event.user.username}}</h1>
+  <h1 id="hosted_by">Events Hosted by {{event.user.username}}</h1>
   <form>
     {{!-- The username will be pulled directly from the session object before the request is sent
      <label for="event_host">Insert Event Host (User Name or Entity)</label>
     <input type="text" name="event_host" id="username"> --}}
-    <div class="row align-center mb-5" id="create_event">
-      <div class="col-md-3">
-        <h2>Event Name:</h2>
+    <div class="hero create_container is-info" id="create_event">
+      <div class="hero-body col-md-3">
+        <h2 class="title">Event Name:</h2>
             <label for="event_name"></label>
-        <input type="text" name="event_name" id="event_name">
+        <input class="input is-normal"type="text" name="event_name" id="event_name" placeholder="Event Name">
       </div>
       <div class="col-md-3">
-        <h3>Place:</h3>
+        <h3 class="subtitle">Place:</h3>
         <label for="event_location"></label>
-        <input type="text" name="event_location" id="event_location">
+        <input class="input" type="text" name="event_location" id="event_location">
       </div>
 
       <div class="col-md-3">
-        <h3>Time:</h3>
+        <h3 class="subtitle">Time:</h3>
     <label for="event_time"></label>
-    <input type="time" id="event_time" name="event_time" min="00:00" max="23:59" required >
-    <h4>Date:</h4>
+    <input class="input" type="time" id="event_time" name="event_time" min="00:00" max="23:59" required >
+    <h4 class="subtitle">Date:</h4>
     <label for="event_date"></label>
-    <input type="date" id="event_date" name="event_day" value="2022-02-19" min="2022-08-19" max="2023-01-01">
+    <input class="input"  type="date" id="event_date" name="event_day" value="2022-02-19" min="2022-08-19" max="2023-01-01">
 
     
       {{!-- The username will be pulled directly from the session object before the request is sent 
@@ -35,10 +35,11 @@
         <h3>Host: {{event.user.username}}</h3>
       </div> --}}
 
-      
+      <button class="button" type="submit" id="add-event-form ">Submit</button>
+  <button class="button " type="submit" id="home_btn">Home</button>
   </div>
 </div>
-  <button class="button" type="submit" id="add-event-form ">submit</button>
+  
     </form>
   
 </center>
