@@ -5,6 +5,7 @@ const router = require('express').Router();
 
 router.post('/', withAuthApi, async (req, res) => {
     try {
+        debugger;
         console.log("new event POST req recieved");
         const createdEvent = await Event.create({
             ...req.body,
@@ -12,7 +13,9 @@ router.post('/', withAuthApi, async (req, res) => {
         });
         
         res.status(200).json(createdEvent);
+        debugger;
     }catch (err) {
+        debugger;
         console.log(err);
         res.status(500).json(err)
     }
