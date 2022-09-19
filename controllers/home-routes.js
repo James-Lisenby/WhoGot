@@ -35,7 +35,7 @@ router.get('/', withAuth, async (req, res) => {
     let eventsExist = true;
     if(userEvents.length < 1) {
       eventsExist = false;
-      res.render('new_user', {
+      res.render('homepage', {
         eventsExist,
         loggedInUser,
         userEvents,
@@ -124,11 +124,11 @@ router.get('/new-event', (req, res) => {
 
 
 
-//send a new user to /new-user
-router.get('/new-user', withAuth, (req, res) => {
+// //send a new user to /new-user
+// router.get('/new-user', withAuth, (req, res) => {
 
-  res.render('new_user');
-});
+//   res.render('new_user');
+// });
 
 
 // find all events WHERE LOGGED-USER is host

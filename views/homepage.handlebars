@@ -1,3 +1,4 @@
+<h1>Events</h1>
 {{#if eventsExist}}
 {{#each userEvents as |event| }}
 
@@ -42,6 +43,8 @@
 {{#each userEvents.user.items.event as |event| }}
 <h1>Events where {{event.user.username}} has agreed to bring Items</h1>
 {{/each}}
+{{else}}
+<h2>You don't have any events yet. Create one!</h2>
 {{/if}}
 
 <a href="/new-event">
