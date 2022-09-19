@@ -22,7 +22,7 @@ form {
 }
 
 h1 {
-  color: purple;
+  color: black;
 }
 
 input :focus {
@@ -60,10 +60,19 @@ div {
 }
 
 .card {
-  background-color: lightgray;
+  background-color: #8bc6ec;
+  background-image: radial-gradient(
+    circle 610px at 5.2% 51.6%,
+    rgba(5, 8, 114, 1) 0%,
+    rgba(7, 3, 53, 1) 97.5%
+  );
+
+  width: 30%;
+
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   font-weight: 600;
+  color: white;
 }
 
 /* On mouse-over, add a deeper shadow */
@@ -76,7 +85,41 @@ div {
   padding: 2px 16px;
 }
 
-/* IDs */
+.requested_items {
+  background-image: linear-gradient(
+    to right,
+    #ff8177 0%,
+    #ff867a 0%,
+    #ff8c7f 21%,
+    #f99185 52%,
+    #cf556c 78%,
+    #b12a5b 100%
+  );
+
+  width: 30%;
+
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  font-weight: 600;
+  color: white;
+}
+
+.item_li {
+  width: 30%;
+
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  font-weight: 600;
+  color: white;
+}
+
+.info_div {
+  background-color: white;
+}
+
+.container {
+  display: block;
+}
 
 #login {
   color: black;
@@ -92,29 +135,36 @@ div {
 #sign_up_header {
   background-color: whitesmoke;
   opacity: 1;
-  /* text-decoration: solid; */
+
   width: fit-content;
 }
 
 #hosted_by {
   background-color: white;
+  font-size: larger;
 }
 
 #event_name {
   background-color: whitesmoke;
-  color: #02a9ea;
+  color: black;
 }
 
 #event_place {
   background-color: whitesmoke;
-  color: #fa8072;
+  color: black;
 }
 
-/* #event_div {
-  display: flex;
-  background-color: lightgray;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
+/* #event_time {
+}
+
+#event_host {
+}
+
+#event_item {
+  
+} */
+
+/* #create_event {
 } */
 
 /* #create_event {
@@ -122,3 +172,6 @@ div {
 
 #logout {
 } */
+
+/* background-color: #8EC5FC;
+background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%); */

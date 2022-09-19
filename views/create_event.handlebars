@@ -9,36 +9,38 @@
     {{!-- The username will be pulled directly from the session object before the request is sent
      <label for="event_host">Insert Event Host (User Name or Entity)</label>
     <input type="text" name="event_host" id="username"> --}}
-    <div class="row align-center mb-5">
+    <div class="row align-center mb-5" id="create_event">
       <div class="col-md-3">
         <h2>Event Name:</h2>
-            <label for="event_name">What's The Event ?</label>
+            <label for="event_name"></label>
         <input type="text" name="event_name" id="event_name">
       </div>
       <div class="col-md-3">
         <h3>Place:</h3>
-        <label for="event_location">Where?</label>
+        <label for="event_location"></label>
         <input type="text" name="event_location" id="event_location">
       </div>
 
       <div class="col-md-3">
         <h3>Time:</h3>
-    <label for="event_time">Scheduled Time?</label>
+    <label for="event_time"></label>
     <input type="time" id="event_time" name="event_time" min="00:00" max="23:59" required >
     <h4>Date:</h4>
-    <label for="event_date">What Day?</label>
+    <label for="event_date"></label>
     <input type="date" id="event_date" name="event_day" value="2022-02-19" min="2022-08-19" max="2023-01-01">
 
-      </div>
+    
       {{!-- The username will be pulled directly from the session object before the request is sent 
       <div class="col-md-3">
         <h3>Host: {{event.user.username}}</h3>
       </div> --}}
 
-      <button type="submit" id="add-event-form">submit</button>
-
-    </form>
+      
   </div>
+</div>
+  <button class="button" type="submit" id="add-event-form ">submit</button>
+    </form>
+  
 </center>
 
 <script src="/js/addEvent.js"></script>
