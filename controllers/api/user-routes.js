@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { User, Event, Item } = require('../../models');
-const validator = require('email-validator');
+var validator = require("email-validator");
+validator.validate("test@email.com");
 
 // // GET all users
 // router.get('/', async (req, res) => {
