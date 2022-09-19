@@ -108,6 +108,62 @@ router.get('/new-event', (req, res) => {
   res.render('create_event');
 });
 
-module.exports = router;
+
 
 // POST Route "/signup" - posts a new user to Users.js
+
+
+// find all events WHERE LOGGED-USER is host
+router.get('/', withAuth, async (req, res) => {
+  try {
+    const loggedInUser = req.session.user_id;
+    const userEventData = await Event.findAll({
+      where: {
+        host_user_id: loggedInUser,
+      },
+      //eager loading includes associated items and the users associated with those items
+      // include: {
+      //   model: User,
+      //   attributes: { exclude: ['password'] },
+      //   // include: [{
+      //   //   model: Event,
+      //   //   through: Item,
+      //   // }],
+      // },
+    });
+
+    // serializes data
+    const userEvents = userEventData.map((userEvent) =>
+      userEvent.get({ plain: true })
+    );
+    console.log(userEvents[0].id);
+    res.render('homepage', {
+      loggedInUser,
+      userEvents,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get('/new-event', withAuth, async (req, res) => {
+  try {
+    const loggedInUser = req.session.user_id;
+    const newUserData = await User.findByPk(loggedInUser);
+    const newEvents = newUserData.toJSON();
+
+    res.render('create_event', {
+      loggedInUser,
+      newEvents,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+});
+
+
+module.exports = router;
