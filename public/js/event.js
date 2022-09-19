@@ -3,9 +3,9 @@
 let eventText;
 let eventTitle;
 const createNewEventBTN = document.querySelector('#add-new-event');
-let deleteEventBTN;
-let saveEventBTN;
-let exportEventBTN;
+const deleteEventBTN = document.querySelector('#delete-event');
+const saveEventBTN = document.querySelector('save-event');
+const exportEventBTN = document.querySelector('#export-event');
 let eventList;
 
 // if (window.location.pathname === '/events.js'){
@@ -16,7 +16,7 @@ let eventList;
 //     saveEventBTN = document.querySelector('.saveEvent');
 //     exportEventBTN = document.querySelector('.exportEvent')
 //     eventList = document.querySelector('.list-container, list-group');
-}
+//}
 
 //const show = (elem) => {
     //elem.style.display = 'inline';
