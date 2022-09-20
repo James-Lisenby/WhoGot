@@ -1,3 +1,5 @@
+const { json } = require('express');
+const { JSON } = require('sequelize');
 const { Event } = require('../../models');
 const { withAuthApi } = require('../../utils/auth');
 
@@ -11,12 +13,13 @@ router.post('/', withAuthApi, async (req, res) => {
             ...req.body,
             host_user_id: req.session.user_id,
         });
-        
+        debugger;
         res.status(200).json(createdEvent);
         debugger;
     }catch (err) {
         debugger;
         console.log(err);
+        debugger;
         res.status(500).json(err)
     }
     }
