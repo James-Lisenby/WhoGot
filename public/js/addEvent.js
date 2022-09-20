@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const addEventFormHandler = async (event) => {
     event.preventDefault();
+    debugger;
 
     // created newEvent objects
 
@@ -38,12 +39,16 @@ console.log(`new sql datetime = '${time}'`);
 
       console.log(response);
       debugger;
+
   
       if (response.ok) {
         const data = await response.json()
+
         //this could be problematic. Make sure there is an event_id property in the response. it may need to be response.createdEvent.id
         document.location.replace(`/event/${data.id}`);
       } else {
+        debugger;
+
         alert('Failed to create new event.');
       }
     }

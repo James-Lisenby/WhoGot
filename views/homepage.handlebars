@@ -1,4 +1,6 @@
-<h1>Events</h1>
+<h1 id="whogot_events">Events</h1>
+  <h1 id="hosted_by"> {{event.user.username}}</h1>
+  
 {{#if eventsExist}}
 {{#each userEvents as |event| }}
 
@@ -6,31 +8,25 @@
 {{!-- event div --}}
 <div class="card" id="event_div">
   <div class="info_div">
-
-  <h1 id="hosted_by">Events Hosted by {{event.user.username}}</h1>
-
     <h2 id="event_name">Event Name: {{event.name}}</h2>
     <h3 id="event_place">Place: {{event.place}}</h3>
     </div>
-
     <h3 id="event_time">Time: {{event.time}}</h3>
-  
- 
-  <div class="col-md-3">
+    <div class="col-md-3">
     <h3>Host: {{event.user.username}}</h3>
   </div>
-  
-</div>
+  </div>
 {{!-- event div --}}
-
+<h1 id="you_got"> YouGot </h1>
 {{#each event.user.items as |item| }}
+
 <div class="requested_items" id="event_div">
   <div class="">
-    <h1>Items: {{event.user.items.name}}</h1>
-    <ul>Item.event_id: {{item.event.name}}
-      <li>Item.name: {{item.name}}</li>
-      <li>item.user_id: {{item.user_id}}</li>
-      <li>Item.user.name: {{item.user.name}}</li>
+    <h2>{{event.user.items.name}}</h2>
+    <ul>{{item.event.name}}
+      <li> {{item.name}}</li>
+      <li> {{item.user_id}}</li>
+      <li> {{item.user.name}}</li>
 
     </ul>
     
@@ -40,12 +36,13 @@
 {{/each}}
 {{/each}}
 {{#each userEvents.user.items.event as |event| }}
-<h1>Events where {{event.user.username}} has agreed to bring Items</h1>
+
 {{/each}}
 {{else}}
-<h2>You don't have any events yet. Create one!</h2>
+
 {{/if}}
 
 <a href="/new-event">
+<h2>You don't have any events yet. Create one!</h2>
   <button class="button" id="add-new-event create_event">Create New Event</button>
 </a>

@@ -17,6 +17,7 @@ router.post('/', withAuthApi, async (req, res) => {
         res.status(200).json(createdEvent);
         debugger;
     }catch (err) {
+        debugger;
         console.log(err);
         debugger;
         res.status(500).json(err)
