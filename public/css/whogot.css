@@ -37,6 +37,11 @@ input {
   width: fit-content;
 }
 
+/* h1 {
+  width: fit-content;
+  background: whitesmoke;
+} */
+
 h2 {
   width: fit-content;
 }
@@ -132,6 +137,7 @@ form {
 .info_div {
   background-color: white;
   border-radius: 25px;
+  margin-top: 5%;
 }
 
 .container {
@@ -191,6 +197,7 @@ form {
 #email-signup,
 #email-username,
 #password-signup,
+#username-signup,
 #create_event {
   border-radius: 25px;
   width: fit-content;
@@ -205,4 +212,18 @@ form {
 #event_time,
 #event_date {
   border-radius: 25px;
+}
+
+#you_got {
+  max-width: 40%;
+  border-radius: 30px;
+  background-color: whitesmoke;
+  margin-top: 10%;
+}
+
+#whogot_events{
+  max-width: 40%;
+  border-radius: 30px;
+  background-color: whitesmoke;
+  margin-top: 10%;
 }
